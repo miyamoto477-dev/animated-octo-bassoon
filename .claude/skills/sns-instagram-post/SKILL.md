@@ -89,6 +89,27 @@ curl -X GET "https://graph.facebook.com/v21.0/{media_id}?fields=permalink,timest
 
 取得した `permalink`（投稿URL）をユーザーに提示し、SNS運用管理シートを使っている場合は該当行の「ステータス」を `投稿済み`、「投稿日」を実行日に更新する（ユーザーに更新してよいか確認してから行う）。
 
+## トラブルシューティング｜まずトークンの権限を確認する
+
+投稿系のエラー（特に `OAuth`・`permission`・`authorized` を含むもの）が出た場合は、原因の切り分けとして最初にトークンの保有権限を確認する。
+
+```bash
+curl "https://graph.facebook.com/v21.0/me/permissions?access_token={ACCESS_TOKEN}"
+```
+
+レスポンスの `data` 配列に、投稿に必要な権限が **すべて `status: granted`** で含まれているかを確認する。
+
+| 権限 | 用途 | 欠けている/declinedの場合の症状 |
+| --- | --- | --- |
+| `instagram_basic` | IGアカウント情報の読み取り | アカウント情報取得やコンテナ作成が失敗する |
+| `instagram_content_publish` | 投稿の作成・公開 | `/media` `/media_publish` が権限エラーで失敗する（投稿系エラーの最頻出原因） |
+| `pages_show_list` | 連携Facebookページの一覧取得 | IG User IDの特定に失敗する |
+| `pages_read_engagement` | ページとIGアカウントの連携情報取得 | ページ⇔IGアカウントの紐付け確認が失敗する |
+
+- `status: granted` 以外（`declined` など）になっている権限があれば、そのトークンではなく再認可（OAuth再承認）が必要。ユーザーにアプリの権限リクエスト画面からの再認可を依頼する。
+- `instagram_basic` だけが確認できても、投稿には `instagram_content_publish` が別途必須なので、それが揃っているかも必ずセットで確認する。
+- 全権限が `granted` なのにエラーが続く場合は、STEP2以降（画像URLの到達性、メディア形式、IG User IDの誤り等）を切り分ける。
+
 ## よくあるエラーと対処
 
 | エラー | 原因 | 対処 |
