@@ -13,7 +13,7 @@ Claude Codeにこのフォルダを開かせると、あなたのSNS運用の企
 企画（sns-kikaku-30）
 → 台本（sns-script-gen）
 → サムネ（sns-thumbword-gen）
-→ 投稿・運用管理（SNS運用管理シート）
+→ 投稿・運用管理（SNS運用管理シート／sns-instagram-post）
 → 分析・報告（client-report-gen）
 → 営業提案（account-diagnosis-proposal）
 ```

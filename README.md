@@ -66,6 +66,7 @@ Day3参加特典で配布した「エヌイチ式 SNS運用管理シート」を
 | `sns-kikaku-30` | 投稿企画30本を自動生成 |
 | `sns-script-gen` | 台本（フック・構成・CTA）を自動生成 |
 | `sns-thumbword-gen` | サムネイル・表紙テキスト案を自動生成 |
+| `sns-instagram-post` | Instagram Graph APIで画像・動画・リールを実際に投稿 |
 | `client-report-gen` | 月次クライアント報告書を自動生成 |
 | `account-diagnosis-proposal` | アカウント診断結果を提案書に変換 |
 
