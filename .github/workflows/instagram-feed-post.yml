@@ -1,0 +1,67 @@
+name: Instagram Feed Post
+
+# 現時点では手動実行（workflow_dispatch）のみ有効です。
+# 毎日09:00 JST の定期実行を有効化する手順は docs/instagram-feed-auto-setup.md を参照してください。
+# （有効化する際は、下の "schedule:" のコメントを外すだけです。09:00 JST = 00:00 UTC）
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "投稿ID（例: post-001）。空欄の場合は未投稿の中から最も古い1件を自動選択します"
+        required: false
+      dry_run:
+        description: "true にすると内容確認のみ行い、実際の投稿は行いません"
+        required: false
+        default: "false"
+  # schedule:
+  #   - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    # 投稿前の手動承認ゲート。
+    # 事前に Settings > Environments で "instagram-posting" を作成し、
+    # Required reviewers に自分を設定してください。設定するまでは承認なしで実行されるため注意してください。
+    environment: instagram-posting
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Post to Instagram
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IMGUR_CLIENT_ID: ${{ secrets.IMGUR_CLIENT_ID }}
+          EXPECTED_IG_USERNAME: ${{ secrets.EXPECTED_IG_USERNAME }}
+        run: |
+          if [ -n "${{ github.event.inputs.post_id }}" ]; then
+            TARGET="--file ${{ github.event.inputs.post_id }}"
+          else
+            TARGET="--next"
+          fi
+
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python scripts/instagram_post.py post $TARGET --yes --dry-run
+          else
+            python scripts/instagram_post.py post $TARGET --yes
+          fi
+
+      - name: Commit updated posted.json
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add feed-auto/posted.json
+          git diff --cached --quiet || git commit -m "chore: update feed-auto/posted.json after Instagram post"
+          git diff --cached --quiet || git push
