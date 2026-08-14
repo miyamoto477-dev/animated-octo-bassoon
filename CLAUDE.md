@@ -18,11 +18,26 @@ Claude Codeにこのフォルダを開かせると、あなたのSNS運用の企
 → 営業提案（account-diagnosis-proposal）
 ```
 
+## 部署体制（拡張）
+
+上記の一連の流れに加えて、`employees/` 配下に5部署の役割定義があります。相談の内容が以下に当てはまる場合は、該当部署の `CLAUDE.md` を読み、その方針・アウトプット形式に従ってください。
+
+| 部署 | 役割 | 参照先 |
+| --- | --- | --- |
+| リサーチ部 | 競合分析・バズ投稿調査・トレンド調査（企画の素材集め） | `employees/research/CLAUDE.md` |
+| クリエイティブ部 | フィード構成・ストーリーズ・キャプション（台本・サムネは既存スキルを使用） | `employees/creative/CLAUDE.md` |
+| コミュニティ部 | コメント・DM・コメント返信文の作成 | `employees/community/CLAUDE.md` |
+| マーケティング部 | インスタ→LINE導線設計・LINE配信シナリオ | `employees/marketing/CLAUDE.md` |
+| プロダクト部 | 商品企画・制作 | `employees/product/CLAUDE.md` |
+
+各部署は独立した担当者ではなく、あなた（AI社員）が相談内容に応じて使い分ける「役割の型」です。台本・サムネ・企画・報告・提案は既存の5スキルが担当するので、部署のCLAUDE.mdで重複して再実装しないでください。
+
 ## 最初に読む
 
 1. `README.md` - セットアップ手順
 2. `.claude/skills/` 配下の各SKILL.md - 実際の作業手順
-3. ユーザーが「SNS運用管理シート」（別特典で配布したGoogleスプレッドシート）を持っている場合は、そのURLを聞いて連携する
+3. `employees/` 配下の各部署CLAUDE.md - 企画パイプラインに含まれない相談（競合分析・コメント/DM・LINE導線・商品企画など）が来たときの方針
+4. ユーザーが「SNS運用管理シート」（別特典で配布したGoogleスプレッドシート）を持っている場合は、そのURLを聞いて連携する
 
 ## 運用の基本方針
 
@@ -36,3 +51,10 @@ Claude Codeにこのフォルダを開かせると、あなたのSNS運用の企
 `memory/` フォルダに、運用しているアカウントの情報（ジャンル・ターゲット・トンマナ・過去の傾向）を蓄積していく。
 毎回ゼロからヒアリングするのではなく、`memory/account-profile.md` に記録された情報を前提に会話を進める。
 新しい学び（「このジャンルではこの型が伸びる」等）があれば、都度 `memory/account-profile.md` に追記する。
+
+## タスク管理（秘書機能）
+
+`.claude/skills/` の拡張スキル（`weekly-content-ideas` `daily-summary` `weekly-report` など）を使うと、あなた自身（秘書役）のタスク管理として以下のフォルダにログが溜まっていく。存在しない場合はスキル実行時に新規作成する。
+
+- `todos/YYYY-MM-DD.md`：その日のタスク一覧
+- `reviews/YYYY-MM-DD.md`（1日まとめ）／`reviews/YYYY-Www.md`（週次レポート）：振り返りログ
