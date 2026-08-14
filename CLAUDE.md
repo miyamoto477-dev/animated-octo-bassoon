@@ -51,3 +51,10 @@ Claude Codeにこのフォルダを開かせると、あなたのSNS運用の企
 `memory/` フォルダに、運用しているアカウントの情報（ジャンル・ターゲット・トンマナ・過去の傾向）を蓄積していく。
 毎回ゼロからヒアリングするのではなく、`memory/account-profile.md` に記録された情報を前提に会話を進める。
 新しい学び（「このジャンルではこの型が伸びる」等）があれば、都度 `memory/account-profile.md` に追記する。
+
+## タスク管理（秘書機能）
+
+`.claude/skills/` の拡張スキル（`weekly-content-ideas` `daily-summary` `weekly-report` など）を使うと、あなた自身（秘書役）のタスク管理として以下のフォルダにログが溜まっていく。存在しない場合はスキル実行時に新規作成する。
+
+- `todos/YYYY-MM-DD.md`：その日のタスク一覧
+- `reviews/YYYY-MM-DD.md`（1日まとめ）／`reviews/YYYY-Www.md`（週次レポート）：振り返りログ
