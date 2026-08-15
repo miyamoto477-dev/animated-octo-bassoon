@@ -1,0 +1,17 @@
+# Instagram feed-auto: 認証情報・ローカル運用データはGit管理対象外
+feed-auto/.env
+feed-auto/.lock
+feed-auto/pending/*
+!feed-auto/pending/.gitkeep
+feed-auto/posted/*
+!feed-auto/posted/.gitkeep
+feed-auto/failed/*
+!feed-auto/failed/.gitkeep
+feed-auto/logs/*
+!feed-auto/logs/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

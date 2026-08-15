@@ -97,6 +97,10 @@ Day3参加特典で配布した「エヌイチ式 SNS運用管理シート」を
 | `comment-batch-gen` | 今日送るコメント文を指定件数まとめて生成 |
 | `weekly-report` | 先週1週間の運用結果を社内向けに振り返る（クライアント向け月次報告は `client-report-gen`） |
 
+## Instagramフィード自動投稿（feed-auto）
+
+`feed-auto/` フォルダに画像とキャプションのペアを入れておくと、毎日決まった時刻（例：朝9時）に1件ずつ自動でInstagramフィードに投稿し、投稿済みは自動で仕分けられます（二重投稿なし）。Instagram公式のGraph APIを使うため、ビジネス/クリエイターアカウントへの切り替えとMetaアクセストークンの発行が必要です。セットアップ手順は [`feed-auto/セットアップ手順.md`](./feed-auto/セットアップ手順.md)、日々の使い方は [`feed-auto/README.md`](./feed-auto/README.md) を参照してください。
+
 ## 困ったときは
 
 - **フォルダを開いても中身が少なく見える場合**：スキルは `.claude/skills/` という隠しフォルダに入っています。Finderで `command + shift + .` を押すと表示されます（もう一度押すと非表示に戻ります）。中身が見えなくてもClaude Codeからは正常に使えます。
