@@ -1,0 +1,16 @@
+{
+  "name": "instagram-auto-post",
+  "version": "1.0.0",
+  "description": "Instagram Graph APIを使って画像1枚+投稿文をInstagramへ自動投稿するツール",
+  "main": "instagram-post.js",
+  "scripts": {
+    "start": "node instagram-post.js",
+    "dry-run": "node instagram-post.js --dry-run"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7"
+  }
+}
