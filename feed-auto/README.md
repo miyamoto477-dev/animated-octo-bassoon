@@ -56,4 +56,5 @@ python feed-auto/scripts/post_to_instagram.py
 
 - `.env` に入るアクセストークンは他人と共有しないこと。誤って共有した場合はMeta for Developersですぐに無効化・再発行してください。
 - Meta発行の長期アクセストークンは約60日で失効します。失効が近いと実行時に警告が表示されるので、その際は `セットアップ手順.md` の手順で再発行してください。
-- `pending/` `posted/` `failed/` の中身（画像・キャプション・ログ）はGit管理対象外（`.gitignore`）です。ローカルにのみ保存されます。
+- 画像本体（`.jpg`/`.png`等）・実行ログ・`.env` はGit管理対象外（`.gitignore`）です。ローカルにのみ保存されます。
+- キャプション（`.txt`）や企画メモはテキストの制作物としてGit管理されます（`git status` / `git add` で通常どおり反映されます）。

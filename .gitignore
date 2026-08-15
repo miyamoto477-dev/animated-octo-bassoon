@@ -1,14 +1,22 @@
-# Instagram feed-auto: 認証情報・ローカル運用データはGit管理対象外
+# Instagram feed-auto: 認証情報・画像本体・実行ログはGit管理対象外
+# （キャプション.txtや企画メモはテキストの制作物なのでGit管理する）
 feed-auto/.env
 feed-auto/.lock
-feed-auto/pending/*
-!feed-auto/pending/.gitkeep
-feed-auto/posted/*
-!feed-auto/posted/.gitkeep
-feed-auto/failed/*
-!feed-auto/failed/.gitkeep
-feed-auto/logs/*
-!feed-auto/logs/.gitkeep
+feed-auto/pending/*.jpg
+feed-auto/pending/*.jpeg
+feed-auto/pending/*.png
+feed-auto/pending/*.webp
+feed-auto/posted/*.jpg
+feed-auto/posted/*.jpeg
+feed-auto/posted/*.png
+feed-auto/posted/*.webp
+feed-auto/failed/*.jpg
+feed-auto/failed/*.jpeg
+feed-auto/failed/*.png
+feed-auto/failed/*.webp
+feed-auto/failed/*.error.txt
+feed-auto/logs/*.csv
+feed-auto/logs/*.log
 
 # Python
 __pycache__/
