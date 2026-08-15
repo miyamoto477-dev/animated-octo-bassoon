@@ -130,7 +130,9 @@ async function generateCaption(topic) {
     );
   }
 
-  const client = new Anthropic({ apiKey });
+  // SDKが内部で使う通信部品を、環境によって不安定なnode-fetchではなく
+  // Node.js本来のfetch（グローバルfetch）に固定する
+  const client = new Anthropic({ apiKey, fetch: globalThis.fetch });
   const model = process.env.CLAUDE_MODEL || 'claude-opus-5';
   const accountProfile = readAccountProfile();
   const profileSection = accountProfile
