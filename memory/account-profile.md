@@ -43,7 +43,7 @@
 
 ## 運用管理シート
 
-- SNS運用管理シートのURL：
+- SNS運用管理シートのURL：https://docs.google.com/spreadsheets/d/1aEgMfzw7fNolQd5CjGGTRJPRYFPn0nfnK1tFwkCu43w/edit（企画30本を登録済み）
 - 数値トラッキングの記録頻度：
 
 ## 気づき・学び（随時追記）
