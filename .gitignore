@@ -1,0 +1,20 @@
+# Instagram自動投稿：認証情報・ロックファイルはコミットしない
+scripts/instagram-auto-post/.env
+scripts/instagram-auto-post/.post.lock
+
+# ログ（.gitkeepだけ残す）
+logs/*.log
+!logs/.gitkeep
+
+# feed-auto：投稿素材（画像・キャプション本文）は個人のコンテンツなのでコミットしない
+feed-auto/*.jpg
+feed-auto/*.jpeg
+feed-auto/*.png
+feed-auto/*.txt
+feed-auto/posted/*.jpg
+feed-auto/posted/*.jpeg
+feed-auto/posted/*.png
+feed-auto/posted/*.txt
+
+# OS
+.DS_Store

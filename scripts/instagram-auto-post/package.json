@@ -1,0 +1,13 @@
+{
+  "name": "instagram-auto-post",
+  "private": true,
+  "version": "1.0.0",
+  "description": "feed-auto フォルダの画像・キャプションを1日1件、Instagram Graph API経由でフィードに自動投稿する",
+  "main": "post-to-instagram.js",
+  "scripts": {
+    "post": "node post-to-instagram.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

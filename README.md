@@ -97,6 +97,12 @@ Day3参加特典で配布した「エヌイチ式 SNS運用管理シート」を
 | `comment-batch-gen` | 今日送るコメント文を指定件数まとめて生成 |
 | `weekly-report` | 先週1週間の運用結果を社内向けに振り返る（クライアント向け月次報告は `client-report-gen`） |
 
+## 自動投稿ツール（cron連携）
+
+`feed-auto/` フォルダに画像＋キャプションを置いておくと、毎日決まった時間に1件ずつInstagramフィードへ自動投稿する仕組みも用意しています。パソコンの `cron`（Windowsはタスクスケジューラ）で動くので、Claude Codeを開いていないときも自動で動きます。
+
+セットアップ方法は `scripts/instagram-auto-post/README.md` を、投稿素材の置き方は `feed-auto/README.md` を参照してください。
+
 ## 困ったときは
 
 - **フォルダを開いても中身が少なく見える場合**：スキルは `.claude/skills/` という隠しフォルダに入っています。Finderで `command + shift + .` を押すと表示されます（もう一度押すと非表示に戻ります）。中身が見えなくてもClaude Codeからは正常に使えます。
