@@ -22,8 +22,11 @@ loadEnvFile(path.join(SCRIPT_DIR, '.env'));
 const FEED_DIR = path.resolve(ROOT_DIR, process.env.FEED_AUTO_DIR || 'feed-auto');
 const POSTED_DIR = path.resolve(ROOT_DIR, process.env.POSTED_DIR || path.join(FEED_DIR, 'posted'));
 const LOG_DIR = path.resolve(ROOT_DIR, 'logs');
+const LOG_FILE = path.join(LOG_DIR, 'instagram-auto-post.log');
 const LOCK_FILE = path.join(SCRIPT_DIR, '.post.lock');
 const LOCK_STALE_MS = 30 * 60 * 1000; // 30分以上残っているロックは前回異常終了とみなす
+
+fssync.mkdirSync(LOG_DIR, { recursive: true });
 
 const IMAGE_EXTS = ['.jpg', '.jpeg', '.png'];
 const GRAPH_API_VERSION = process.env.GRAPH_API_VERSION || 'v21.0';
@@ -256,5 +259,11 @@ function sleep(ms) {
 
 function log(message) {
   const timestamp = new Date().toISOString();
-  console.log(`[${timestamp}] ${message}`);
+  const line = `[${timestamp}] ${message}`;
+  console.log(line);
+  try {
+    fssync.appendFileSync(LOG_FILE, line + '\n', 'utf8');
+  } catch {
+    // ログファイルへの書き込みに失敗しても処理は継続する
+  }
 }
