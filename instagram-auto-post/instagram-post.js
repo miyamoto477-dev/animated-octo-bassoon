@@ -151,7 +151,10 @@ async function generateCaption(topic) {
 
   const response = await client.messages.create({
     model,
-    max_tokens: 500,
+    max_tokens: 1024,
+    // キャプション生成は単純なタスクなので内部思考は不要。
+    // 有効のままだと max_tokens を思考に使い切り、本文が途中で切れることがある。
+    thinking: { type: 'disabled' },
     messages: [{ role: 'user', content: prompt }],
   });
 
