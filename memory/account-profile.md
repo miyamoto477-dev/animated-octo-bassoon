@@ -43,7 +43,7 @@
 
 ## 運用管理シート
 
-- SNS運用管理シートのURL：https://docs.google.com/spreadsheets/d/1GyIxXxxkx80DneSsbCFKbyBJqk4VbCNkDoG08gQNzZc/edit（企画30本を登録済み。No.6・7・20が台本済、メモ欄におすすめサムネ案を記載）
+- SNS運用管理シートのURL：https://docs.google.com/spreadsheets/d/1CQCVWxuRMJhPStv1lPRquiy6iEN1y4t24fG4mium1o0/edit（企画30本を登録済み。No.6・7・20が台本済、メモ欄におすすめサムネ案を記載。No.6は投稿予定日2026-08-16 10:00を設定）
 - 注記：セル単位の編集はできないため、更新のたびにシートを作り直してURLを差し替える運用になっている。今後もこの方式で更新する
 - 数値トラッキングの記録頻度：
 
