@@ -63,7 +63,11 @@ INSTAGRAM_USER_ID=（数字のみのInstagramビジネスアカウントID）
 IMAGE_URL=（投稿したい画像の公開HTTPS URL）
 CAPTION=（投稿文）
 GRAPH_API_VERSION=v26.0
+ANTHROPIC_API_KEY=（キャプション自動生成を使う場合のみ。使わないなら空でOK）
+CLAUDE_MODEL=claude-opus-5
 ```
+
+`ANTHROPIC_API_KEY` は、後述の「AIキャプション自動生成」機能を使わない場合は空欄のままで構いません。
 
 ### INSTAGRAM_USER_ID の確認方法
 
@@ -110,6 +114,38 @@ npm run dry-run
 
 ---
 
+## 4.5 AIキャプション自動生成（任意機能）
+
+投稿文（キャプション）を自分で考える代わりに、Claude（Anthropic AI）に自動生成させることもできます。
+
+### 事前準備
+
+1. https://console.anthropic.com/ でアカウントを作成し、APIキーを発行する
+2. `.env` の `ANTHROPIC_API_KEY` に、発行したAPIキーを貼り付ける（`CLAUDE_MODEL` は変更不要です）
+
+### 使い方
+
+```powershell
+node instagram-post.js --generate-caption "今日のダイエット豆知識"
+```
+
+`"..."` の部分に、投稿のテーマ・伝えたいことを日本語で入力してください。実行すると、
+
+1. Claudeが投稿テーマに合ったキャプション文（絵文字・ハッシュタグ付き）を生成
+2. 生成結果をターミナルに表示
+3. `.env` の `CAPTION` を自動的に上書き保存
+
+まで行われます。**この時点ではまだInstagramには投稿されません。** 生成された文章を確認し、気に入らなければ表現を変えてもう一度実行できます。問題なければ、いつも通り次のステップに進んでください。
+
+```powershell
+node instagram-post.js --dry-run
+node instagram-post.js
+```
+
+`memory/account-profile.md`（アカウントのジャンル・トンマナ等を記録するファイル）がプロジェクトの一つ上の階層に存在する場合、その内容も参考情報としてClaudeに渡されます。
+
+---
+
 ## 5. 本番投稿
 
 `.env` の内容とdry-runの結果を確認したら、以下を実行すると実際にInstagramへ投稿されます。
@@ -151,9 +187,8 @@ node instagram-post.js
 ## 今後の拡張予定
 
 このツールは「画像1枚 + 投稿文」の投稿を確実に成功させることを目的とした最初のバージョンです。
-今後、以下の機能を追加予定です。
+投稿文のAI自動生成（`--generate-caption`）は実装済みです。今後、以下の機能を追加予定です。
 
-- 投稿文のAI自動生成
 - 複数画像の順番切り替え
 - Google Sheetsから投稿情報を取得
 - 指定日時での自動投稿

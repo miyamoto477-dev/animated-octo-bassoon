@@ -4,15 +4,21 @@
  * Instagram Graph APIを使って「画像1枚 + 投稿文」をInstagramへ投稿するスクリプト。
  *
  * 使い方:
- *   node instagram-post.js --dry-run   ... 実際には投稿せず、設定内容だけ確認する
- *   node instagram-post.js             ... 実際にInstagramへ投稿する
+ *   node instagram-post.js --dry-run                  ... 実際には投稿せず、設定内容だけ確認する
+ *   node instagram-post.js                             ... 実際にInstagramへ投稿する
+ *   node instagram-post.js --generate-caption "テーマ"  ... Claudeにキャプションを生成させ、.envのCAPTIONを更新する
  */
 
 require('dotenv').config();
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+const Anthropic = require('@anthropic-ai/sdk');
 
 const IS_DRY_RUN = process.argv.includes('--dry-run');
+const GENERATE_CAPTION_FLAG_INDEX = process.argv.indexOf('--generate-caption');
 const GRAPH_API_BASE = 'https://graph.facebook.com';
+const ENV_PATH = path.join(__dirname, '.env');
 
 // -----------------------------------------------------------------------
 // 設定の読み込み
@@ -101,6 +107,130 @@ async function checkImageUrlAccessible(imageUrl) {
       message: `画像URLへ接続できませんでした（${err.code || err.message}）。URLが正しいか、インターネットから誰でもアクセスできる状態か確認してください。`,
     };
   }
+}
+
+// -----------------------------------------------------------------------
+// Claudeによるキャプション自動生成
+// -----------------------------------------------------------------------
+
+// memory/account-profile.md があれば、トンマナ・ターゲット情報として参照する
+function readAccountProfile() {
+  try {
+    return fs.readFileSync(path.join(__dirname, '..', 'memory', 'account-profile.md'), 'utf8');
+  } catch {
+    return null;
+  }
+}
+
+async function generateCaption(topic) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      'ANTHROPIC_API_KEYが.envに設定されていません。https://console.anthropic.com/ でAPIキーを発行し、.envに追加してください。'
+    );
+  }
+
+  const client = new Anthropic({ apiKey });
+  const model = process.env.CLAUDE_MODEL || 'claude-opus-5';
+  const accountProfile = readAccountProfile();
+  const profileSection = accountProfile
+    ? `\n\n参考: このアカウントのプロフィール情報\n"""\n${accountProfile}\n"""`
+    : '';
+
+  const prompt = `あなたはSNS運用のプロです。以下のテーマについて、Instagram投稿用のキャプションを1つ作成してください。
+
+テーマ: ${topic}
+
+条件:
+- 140〜200字程度
+- 絵文字を適度に使う（使いすぎない）
+- 最後に関連するハッシュタグを3〜5個つける
+- キャプション本文のみを出力し、説明や前置きは書かない${profileSection}`;
+
+  const response = await client.messages.create({
+    model,
+    max_tokens: 500,
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  const textBlock = response.content.find((block) => block.type === 'text');
+  if (!textBlock) {
+    throw new Error('Claudeからキャプションを取得できませんでした。');
+  }
+  return textBlock.text.trim();
+}
+
+// .envの改行や引用符を壊さないよう、二重引用符付きの値としてエスケープする
+function escapeForEnvDoubleQuoted(value) {
+  return value
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\r\n/g, '\n')
+    .replace(/\n/g, '\\n');
+}
+
+// .envのCAPTION行を、既存の他の行を壊さずに書き換える（無ければ追記する）
+function updateEnvCaption(newCaption) {
+  const newLine = `CAPTION="${escapeForEnvDoubleQuoted(newCaption)}"`;
+
+  let content = '';
+  try {
+    content = fs.readFileSync(ENV_PATH, 'utf8');
+  } catch {
+    content = '';
+  }
+
+  const lines = content.length > 0 ? content.split(/\r?\n/) : [];
+  let replaced = false;
+  const updatedLines = lines.map((line) => {
+    if (/^CAPTION=/.test(line)) {
+      replaced = true;
+      return newLine;
+    }
+    return line;
+  });
+
+  if (!replaced) {
+    updatedLines.push(newLine);
+  }
+
+  fs.writeFileSync(ENV_PATH, updatedLines.join('\n'));
+}
+
+async function runGenerateCaption() {
+  const topic = process.argv[GENERATE_CAPTION_FLAG_INDEX + 1];
+  if (!topic || topic.startsWith('--')) {
+    console.error('使い方: node instagram-post.js --generate-caption "投稿のテーマ"');
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log(`テーマ「${topic}」からキャプションを生成しています...`);
+  let caption;
+  try {
+    caption = await generateCaption(topic);
+  } catch (err) {
+    if (err instanceof Anthropic.AuthenticationError) {
+      console.error('✘ ANTHROPIC_API_KEYが無効です。');
+      console.error('  https://console.anthropic.com/ でAPIキーを確認し、.envに正しく貼り付け直してください。');
+    } else if (err instanceof Anthropic.APIError) {
+      console.error(`✘ Claude APIの呼び出しでエラーが発生しました: ${err.message}`);
+    } else {
+      console.error(`✘ キャプション生成に失敗しました: ${err.message}`);
+    }
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log('');
+  console.log('=== 生成されたキャプション ===');
+  console.log(caption);
+  console.log('');
+
+  updateEnvCaption(caption);
+  console.log('✔ .envのCAPTIONを更新しました。');
+  console.log('内容を確認し、問題なければ次のコマンドで投稿内容をプレビューしてください:');
+  console.log('  node instagram-post.js --dry-run');
 }
 
 // -----------------------------------------------------------------------
@@ -398,6 +528,11 @@ async function runPublish(config, missing) {
 }
 
 async function main() {
+  if (GENERATE_CAPTION_FLAG_INDEX !== -1) {
+    await runGenerateCaption();
+    return;
+  }
+
   const { config, missing } = loadConfig();
 
   if (IS_DRY_RUN) {
