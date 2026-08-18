@@ -22,7 +22,7 @@ const artboard = p => {
     ? `<div class="numwrap"><div class="num">${esc(p.number)}</div>
          <div class="t1">${mark(p.numberTail)}</div></div>`
     : `<div class="head">${p.headline.map(l => `<span class="ln">${mark(l)}</span>`).join('')}</div>`;
-  return `<div class="art" id="${p.id}">
+  return `<div class="art ${p.format === 'story' ? 'story' : ''}" id="${p.id}">
     ${p.badge ? `<div class="qbadge">${esc(p.badge)}</div>` : ''}
     <span class="kicker"><span class="dot"></span>${esc(p.kicker)}</span>
     <div class="mid">
@@ -43,8 +43,13 @@ const html = `<meta charset="utf-8">
 body{background:#555;display:flex;flex-direction:column;gap:40px;padding:40px;align-items:flex-start}
 .art{width:1080px;height:1350px;background:var(--base);position:relative;overflow:hidden;
   font-family:"Noto Sans JP",sans-serif;color:var(--ink);display:flex;flex-direction:column;padding:86px 84px 74px}
+/* ストーリーズ(9:16)。上下はInstagramのUIに隠れるため余白を厚くとる */
+.art.story{height:1920px;padding:330px 84px 320px}
 .art::before{content:"";position:absolute;width:820px;height:820px;border-radius:50%;
   background:var(--accent-soft);opacity:.5;right:-300px;top:-280px}
+.art.story::before{top:-180px}
+.art.story::after{bottom:-120px}
+.art.story .qbadge{top:420px}
 .art::after{content:"";position:absolute;width:460px;height:460px;border-radius:50%;
   background:var(--accent-soft);opacity:.38;left:-210px;bottom:-170px}
 .art > *{position:relative;z-index:1}
