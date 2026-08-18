@@ -97,6 +97,48 @@ Day3参加特典で配布した「エヌイチ式 SNS運用管理シート」を
 | `comment-batch-gen` | 今日送るコメント文を指定件数まとめて生成 |
 | `weekly-report` | 先週1週間の運用結果を社内向けに振り返る（クライアント向け月次報告は `client-report-gen`） |
 
+## 画像生成ツール（Gemini）
+
+Instagram投稿向けの画像を、Gemini（`gemini-3.1-flash-image`）で生成してPNG保存するNode.jsツールです。縦長4:5・1K・保存先 `images/`・ファイル名自動生成がデフォルトになっています。
+
+### 準備
+
+1. Node.js 20.6以上をインストール
+2. [Google AI Studio](https://aistudio.google.com/apikey) でAPIキーを取得
+3. 依存パッケージをインストールし、APIキーを設定する
+
+```bash
+npm install
+cp .env.example .env   # .env を開いて GEMINI_API_KEY を書き換える
+```
+
+### 使い方
+
+```bash
+node generate-image.js "白背景で湯気の立つラテ、朝の自然光、ミニマルな構図"
+```
+
+生成された画像は `images/ig-4x5-20260818-131955-白背景で湯気の立つラテ-01.png` のような名前で保存されます。
+
+主なオプション:
+
+| オプション | 内容 | デフォルト |
+| --- | --- | --- |
+| `-n, --count` | 生成枚数 | 1 |
+| `-o, --out` | 出力フォルダ | `images` |
+| `-m, --model` | 使用モデル | `gemini-3.1-flash-image` |
+| `--aspect` | アスペクト比 | `4:5` |
+| `--size` | 解像度（`1K` / `2K` / `4K`） | `1K` |
+| `--raw` | Instagram向けの共通指示を付けずプロンプトをそのまま使う | オフ |
+
+```bash
+# 3枚まとめて生成する
+node generate-image.js "季節のフルーツタルトの俯瞰カット" -n 3
+```
+
+※ デフォルトでは、プロンプトに「Instagramフィード用・4:5・文字なし」といった共通指示を自動で付与します。プロンプトをそのまま渡したいときは `--raw` を使ってください。
+※ `sns-thumbword-gen` で作ったサムネワードは画像内に焼き込まず、Canva等で後乗せする前提の画像を生成します。
+
 ## 困ったときは
 
 - **フォルダを開いても中身が少なく見える場合**：スキルは `.claude/skills/` という隠しフォルダに入っています。Finderで `command + shift + .` を押すと表示されます（もう一度押すと非表示に戻ります）。中身が見えなくてもClaude Codeからは正常に使えます。

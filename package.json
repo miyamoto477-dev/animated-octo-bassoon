@@ -1,0 +1,17 @@
+{
+  "name": "sns-gemini-image-gen",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gemini (gemini-3.1-flash-image) でInstagram向け縦長4:5・1KのPNG画像を生成するNode.jsツール",
+  "type": "module",
+  "main": "generate-image.js",
+  "scripts": {
+    "generate": "node generate-image.js"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "dependencies": {
+    "@google/genai": "^2.17.1"
+  }
+}
