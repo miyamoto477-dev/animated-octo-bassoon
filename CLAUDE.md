@@ -18,6 +18,13 @@ Claude Codeにこのフォルダを開かせると、あなたのSNS運用の企
 → 営業提案（account-diagnosis-proposal）
 ```
 
+## 動画制作（拡張）
+
+縦型ショート動画そのものを作る依頼（「このテーマでショート動画作って」等）は、`theme-to-short-video` スキルが担当します。企画・台本の後工程として、画像生成→動画化→VOICEVOX音声→字幕焼き込み→書き出しまでを通しで行います。
+
+- 有料クレジットを消費するHiggsfieldの生成前と、公開・アップロード前は必ず確認を取る
+- `references/production-workflow.md` と `scripts/compose_voicevox_telop.py` は未取得のため、`.claude/skills/theme-to-short-video/references/README.md` の代替手順に従う
+
 ## 部署体制（拡張）
 
 上記の一連の流れに加えて、`employees/` 配下に5部署の役割定義があります。相談の内容が以下に当てはまる場合は、該当部署の `CLAUDE.md` を読み、その方針・アウトプット形式に従ってください。

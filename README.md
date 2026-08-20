@@ -96,6 +96,27 @@ Day3参加特典で配布した「エヌイチ式 SNS運用管理シート」を
 | `line-sequence-gen` | 商品名・価格・ターゲットから7日間のLINEステップ配信シナリオを生成 |
 | `comment-batch-gen` | 今日送るコメント文を指定件数まとめて生成 |
 | `weekly-report` | 先週1週間の運用結果を社内向けに振り返る（クライアント向け月次報告は `client-report-gen`） |
+| `theme-to-short-video` | テーマ1つから縦型ショート動画を制作（台本・画像・音声・字幕・書き出し） |
+
+## 動画制作スキル（theme-to-short-video）
+
+テーマを1つ渡すと、縦型9:16のショート動画（1080x1920 / 30fps / 58〜60秒）を、台本→画像→動画クリップ→VOICEVOX音声→字幕焼き込み→書き出しまで通しで制作するスキルです。
+
+```text
+Imagegen静止画 → Higgsfieldで動画化 → Remotionで編集 → mp4書き出し
+```
+
+同梱スクリプト（`.claude/skills/theme-to-short-video/scripts/`）:
+
+| スクリプト | 役割 |
+| --- | --- |
+| `create_project.py` | 制作用フォルダ一式と `manifest.json` を作成 |
+| `start_voicevox_engine.py` | ローカルのVOICEVOX Engineを起動・疎通確認 |
+| `generate_voicevox_audio.py` | `voicevox_lines.tsv` からwavを一括生成 |
+
+外部で別途必要なもの: VOICEVOX Engine（ローカル起動）、Imagegen、Higgsfield（有料クレジット消費前に確認を挟む設計）、Remotion、FFmpeg。
+
+⚠️ 配布zipのうち `references/production-workflow.md` と `scripts/compose_voicevox_telop.py` の2ファイルは未取得です。詳細と対処は `.claude/skills/theme-to-short-video/references/README.md` を参照してください。
 
 ## 困ったときは
 
