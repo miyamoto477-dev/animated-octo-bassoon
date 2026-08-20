@@ -58,3 +58,9 @@ Claude Codeにこのフォルダを開かせると、あなたのSNS運用の企
 
 - `todos/YYYY-MM-DD.md`：その日のタスク一覧
 - `reviews/YYYY-MM-DD.md`（1日まとめ）／`reviews/YYYY-Www.md`（週次レポート）：振り返りログ
+
+## ショート動画制作
+
+テーマから縦型ショート動画（VOICEVOX音声・字幕テロップ入り）を作る相談が来たら、`.claude/skills/theme-to-short-video/SKILL.md` を読み、その手順に従う。
+制作前に必ず `references/production-workflow.md` を読むこと。Higgsfieldなど課金が発生する処理と、動画の公開・アップロードは、実行前に必ずユーザーへ確認する。
+台本・企画パイプライン（`sns-script-gen` など）とは別物なので、SNS投稿の台本依頼と混同しない。

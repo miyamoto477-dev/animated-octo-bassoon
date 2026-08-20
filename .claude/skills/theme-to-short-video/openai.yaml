@@ -1,0 +1,4 @@
+interface:
+  display_name: "Theme to Short Video"
+  short_description: "VOICEVOX音声・字幕入り短尺動画を書き出しまで制作"
+  default_prompt: "Use $theme-to-short-video to create a complete short video from this theme: 江戸時代に大ブームだった焼き魚4選."
