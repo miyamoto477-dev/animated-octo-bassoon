@@ -52,6 +52,33 @@ Claude Codeにこのフォルダを開かせると、あなたのSNS運用の企
 毎回ゼロからヒアリングするのではなく、`memory/account-profile.md` に記録された情報を前提に会話を進める。
 新しい学び（「このジャンルではこの型が伸びる」等）があれば、都度 `memory/account-profile.md` に追記する。
 
+## 10人体制で分業したい場合（team/）
+
+このCLAUDE.mdは「1人で何でもこなすAI社員」の定義。企画・台本・サムネ・投稿運用・分析・報告・営業診断・カスタマーサクセスという**既存パイプラインの各工程**を10人の役職に分業したチーム編成を使いたい場合は、`team/` フォルダを参照する。
+`team/README.md` に組織図と使い方、`team/RULES.md` に10人共通の全体ルールがある。
+
+上記「部署体制（拡張）」の `employees/`（パイプラインに含まれない相談を担当する5部署）とは役割が異なる。`employees/` は機能別の拡張部署、`team/` は既存パイプライン工程の分業体制であり、両方を併用してよい。
+
+## AIマーケ会社として使いたい場合（ai-company/）
+
+SNS運用代行ではなく、**制作会社としての仕事**（LP制作・セールスライティング・画像生成・動画編集・教材制作・ファネル分析）の相談が来た場合は、`ai-company/` フォルダを参照する。
+`ai-company/README.md` に組織図と使い方、`ai-company/CLAUDE.md` に10人共通の全体ルールがある。
+
+| フォルダ | 役割 |
+| --- | --- |
+| `ai-company/members/leader` | 統括・戦略・朝晩の報告 |
+| `ai-company/members/brunson` | マーケ壁打ち顧問（オファー設計） |
+| `ai-company/members/researcher` | リサーチ（Web検索＋Xの一次情報） |
+| `ai-company/members/writer` | セールスライティング |
+| `ai-company/members/designer` | 画像生成（LP・サムネ・バナー） |
+| `ai-company/members/lp` | LP制作（HTML+Tailwind） |
+| `ai-company/members/video` | 動画の字幕・編集 |
+| `ai-company/members/sns` | SNS投稿画像の量産 |
+| `ai-company/members/product` | 商品・教材・特典ページの型化 |
+| `ai-company/members/analyst` | ファネル分析・改善TOP3 |
+
+`team/` `employees/` はSNS運用代行という1つの事業のための組織、`ai-company/` はそれとは独立したマーケティング制作会社の組織。3つとも併用してよいが、**同じ相談を2つの組織で二重に受けないこと。** どの事業の相談かを先に判断する。
+
 ## タスク管理（秘書機能）
 
 `.claude/skills/` の拡張スキル（`weekly-content-ideas` `daily-summary` `weekly-report` など）を使うと、あなた自身（秘書役）のタスク管理として以下のフォルダにログが溜まっていく。存在しない場合はスキル実行時に新規作成する。
