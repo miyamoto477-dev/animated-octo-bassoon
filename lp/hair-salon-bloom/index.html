@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair Salon BLOOM｜渋谷の完全予約制プライベートサロン・髪質改善トリートメント専門</title>
+  <meta name="description" content="渋谷駅徒歩3分、完全予約制のプライベートサロン「Hair Salon BLOOM」。髪質改善トリートメント専門店として、30〜50代の女性の髪のパサつき・白髪・スタイリングのお悩みに寄り添います。">
+  <meta name="keywords" content="渋谷,美容院,美容室,髪質改善,トリートメント,完全予約制,プライベートサロン,白髪染め,30代,40代,50代">
+  <meta name="theme-color" content="#8b7355">
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hair Salon BLOOM">
+  <meta property="og:title" content="Hair Salon BLOOM｜あなたの&quot;似合う&quot;を、見つける場所">
+  <meta property="og:description" content="渋谷駅徒歩3分・完全予約制のプライベートサロン。髪質改善トリートメント専門。">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://placehold.co/1200x630/8b7355/f5f0eb/png?text=Hair+Salon+BLOOM">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hair Salon BLOOM｜あなたの&quot;似合う&quot;を、見つける場所">
+  <meta name="twitter:description" content="渋谷駅徒歩3分・完全予約制のプライベートサロン。髪質改善トリートメント専門。">
+  <meta name="twitter:image" content="https://placehold.co/1200x630/8b7355/f5f0eb/png?text=Hair+Salon+BLOOM">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            beige: { DEFAULT: '#f5f0eb', dark: '#ebe3da' },
+            brown: { DEFAULT: '#8b7355', dark: '#6f5b43', light: '#b39d82' },
+            ink: '#3d342b'
+          },
+          fontFamily: {
+            yu: ['"Yu Gothic Medium"', '"游ゴシック Medium"', 'YuGothic', '"游ゴシック体"', '"Yu Gothic"', '"游ゴシック"', '"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif']
+          },
+          letterSpacing: { widest2: '0.3em' }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-padding-top: 4.5rem; }
+    body { font-feature-settings: "palt"; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body class="bg-beige font-yu text-ink antialiased leading-relaxed">
+
+  <!-- Header -->
+  <header class="fixed inset-x-0 top-0 z-50 bg-beige/90 backdrop-blur border-b border-brown/10">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-8">
+      <a href="#top" class="text-lg font-bold tracking-[0.2em] text-brown-dark">BLOOM</a>
+      <nav class="hidden md:block" aria-label="メインメニュー">
+        <ul class="flex items-center gap-7 text-sm">
+          <li><a href="#reasons" class="hover:text-brown">選ばれる理由</a></li>
+          <li><a href="#menu" class="hover:text-brown">メニュー</a></li>
+          <li><a href="#voice" class="hover:text-brown">お客様の声</a></li>
+          <li><a href="#stylist" class="hover:text-brown">スタイリスト</a></li>
+          <li><a href="#access" class="hover:text-brown">アクセス</a></li>
+          <li><a href="#reserve" class="rounded-full bg-brown px-5 py-2 text-white hover:bg-brown-dark">ご予約</a></li>
+        </ul>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 text-brown-dark" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <nav id="mobileNav" class="hidden md:hidden border-t border-brown/10 bg-beige" aria-label="モバイルメニュー">
+      <ul class="flex flex-col px-4 py-3 text-sm">
+        <li><a href="#reasons" class="block py-3 border-b border-brown/10">選ばれる理由</a></li>
+        <li><a href="#menu" class="block py-3 border-b border-brown/10">メニュー・料金</a></li>
+        <li><a href="#voice" class="block py-3 border-b border-brown/10">お客様の声</a></li>
+        <li><a href="#stylist" class="block py-3 border-b border-brown/10">スタイリスト</a></li>
+        <li><a href="#access" class="block py-3 border-b border-brown/10">店舗情報・アクセス</a></li>
+        <li><a href="#reserve" class="mt-3 block rounded-full bg-brown py-3 text-center text-white">ご予約はこちら</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- 1. Hero -->
+    <section class="relative flex min-h-[100svh] items-center justify-center overflow-hidden pt-16">
+      <img src="https://placehold.co/1920x1080/c9b8a3/f5f0eb?text=Salon+Interior" alt="Hair Salon BLOOMの落ち着いた店内" class="absolute inset-0 h-full w-full object-cover" fetchpriority="high">
+      <div class="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/30 to-ink/60"></div>
+      <div class="relative z-10 px-4 text-center text-white">
+        <p class="mb-5 text-xs tracking-widest2 text-beige/90 md:text-sm">HAIR SALON BLOOM</p>
+        <h1 class="text-[1.7rem] font-bold leading-snug tracking-wider sm:text-4xl md:text-5xl">
+          あなたの<span class="whitespace-nowrap">"似合う"を、</span><br class="sm:hidden">見つける場所
+        </h1>
+        <p class="mx-auto mt-6 max-w-md text-sm text-beige md:text-base">
+          渋谷駅徒歩3分・<br class="sm:hidden">完全予約制のプライベートサロン
+        </p>
+        <a href="tel:0300000000" class="mt-10 inline-flex items-center gap-3 rounded-full bg-brown px-8 py-4 text-base font-bold tracking-wider text-white shadow-lg shadow-ink/30 transition hover:bg-brown-dark">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5.5A2.5 2.5 0 015.5 3h1.6a1 1 0 01.95.68l1.2 3.6a1 1 0 01-.27 1.05L7.4 9.9a12 12 0 006.7 6.7l1.57-1.58a1 1 0 011.05-.26l3.6 1.2a1 1 0 01.68.95v1.6A2.5 2.5 0 0118.5 21C10 21 3 14 3 5.5z"/></svg>
+          お電話でご予約
+        </a>
+        <p class="mt-3 text-xs text-beige/80">TEL 03-0000-0000（受付 10:00〜19:00）</p>
+      </div>
+      <a href="#worries" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-beige/80" aria-label="下へスクロール">
+        <svg class="h-6 w-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- 2. Worries -->
+    <section id="worries" class="px-4 py-20 md:py-28">
+      <div class="mx-auto max-w-5xl">
+        <p class="text-center text-xs tracking-widest2 text-brown">WORRIES</p>
+        <h2 class="mt-3 text-center text-2xl font-bold tracking-wider md:text-3xl">こんなお悩みありませんか？</h2>
+        <div class="mx-auto mt-4 h-px w-12 bg-brown"></div>
+
+        <ul class="mt-12 grid gap-6 md:grid-cols-3">
+          <li class="rounded-2xl bg-white p-8 text-center shadow-sm">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-beige text-brown">
+              <!-- dry hair -->
+              <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M8 3c-2 4 2 6 0 10s2 6 0 8M12 3c-2 4 2 6 0 10s2 6 0 8M16 3c-2 4 2 6 0 10s2 6 0 8"/><path stroke-linecap="round" d="M18 15l2-1M18 19l2 1M6 17l-2 1"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold">髪のパサつき</h3>
+            <p class="mt-3 text-sm text-ink/75">年齢とともに髪がまとまらず、<br>ツヤがなくなってきた…</p>
+          </li>
+          <li class="rounded-2xl bg-white p-8 text-center shadow-sm">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-beige text-brown">
+              <!-- gray hair / mirror -->
+              <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><ellipse cx="12" cy="10" rx="6" ry="7"/><path stroke-linecap="round" d="M12 17v4M9 21h6"/><path stroke-linecap="round" d="M10 6.5l1.5 3M13.5 6l-1 2.5"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold">白髪が目立つ</h3>
+            <p class="mt-3 text-sm text-ink/75">根元の白髪がすぐ気になる。<br>でも暗すぎる色は避けたい…</p>
+          </li>
+          <li class="rounded-2xl bg-white p-8 text-center shadow-sm">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-beige text-brown">
+              <!-- styling / comb -->
+              <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="4" rx="1"/><path stroke-linecap="round" d="M5 13v5M8 13v5M11 13v5M14 13v5M17 13v5M20 13v3"/><path stroke-linecap="round" d="M16 3l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold">スタイリングが決まらない</h3>
+            <p class="mt-3 text-sm text-ink/75">毎朝セットに時間がかかる。<br>今の自分に似合う髪型がわからない…</p>
+          </li>
+        </ul>
+
+        <p class="mt-12 text-center text-base font-bold leading-loose text-brown-dark md:text-lg">
+          そのお悩み、<br class="sm:hidden">BLOOMにおまかせください。
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Reasons -->
+    <section id="reasons" class="bg-white px-4 py-20 md:py-28">
+      <div class="mx-auto max-w-6xl">
+        <p class="text-center text-xs tracking-widest2 text-brown">REASONS</p>
+        <h2 class="mt-3 text-center text-2xl font-bold tracking-wider md:text-3xl">当サロンが選ばれる<br class="sm:hidden">3つの理由</h2>
+        <div class="mx-auto mt-4 h-px w-12 bg-brown"></div>
+
+        <div class="mt-14 space-y-16 md:space-y-24">
+          <!-- Reason 1 -->
+          <article class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+            <img src="https://placehold.co/800x560/d9cbbb/6f5b43?text=Private+Space" alt="個室のような完全プライベート空間" class="w-full rounded-2xl object-cover" loading="lazy">
+            <div>
+              <p class="text-4xl font-light text-brown-light">01</p>
+              <h3 class="mt-2 text-xl font-bold md:text-2xl">完全予約制の<br class="md:hidden">プライベート空間</h3>
+              <p class="mt-4 text-sm leading-loose text-ink/80 md:text-base">
+                1日の予約数を限定し、施術中は他のお客様と顔を合わせることがほとんどありません。周りを気にせず、ゆっくりとご自身のお悩みをご相談いただけます。
+              </p>
+            </div>
+          </article>
+          <!-- Reason 2 -->
+          <article class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+            <img src="https://placehold.co/800x560/d9cbbb/6f5b43?text=Hair+Treatment" alt="髪質改善トリートメントの施術イメージ" class="w-full rounded-2xl object-cover md:order-2" loading="lazy">
+            <div class="md:order-1">
+              <p class="text-4xl font-light text-brown-light">02</p>
+              <h3 class="mt-2 text-xl font-bold md:text-2xl">髪質改善<br class="md:hidden">トリートメント専門</h3>
+              <p class="mt-4 text-sm leading-loose text-ink/80 md:text-base">
+                髪の内部から補修する独自の髪質改善メニューで、年齢とともに変化する髪のパサつきやうねりにアプローチ。手触りとツヤの変化をご体感ください。
+              </p>
+            </div>
+          </article>
+          <!-- Reason 3 -->
+          <article class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+            <img src="https://placehold.co/800x560/d9cbbb/6f5b43?text=Counseling" alt="丁寧なカウンセリングの様子" class="w-full rounded-2xl object-cover" loading="lazy">
+            <div>
+              <p class="text-4xl font-light text-brown-light">03</p>
+              <h3 class="mt-2 text-xl font-bold md:text-2xl">"似合う"を見つける<br class="md:hidden">丁寧なカウンセリング</h3>
+              <p class="mt-4 text-sm leading-loose text-ink/80 md:text-base">
+                骨格・髪質・ライフスタイルまで伺い、ご自宅でも再現しやすいスタイルをご提案。施術から仕上げまで、同じスタイリストが一貫して担当します。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Menu -->
+    <section id="menu" class="px-4 py-20 md:py-28">
+      <div class="mx-auto max-w-3xl">
+        <p class="text-center text-xs tracking-widest2 text-brown">MENU &amp; PRICE</p>
+        <h2 class="mt-3 text-center text-2xl font-bold tracking-wider md:text-3xl">メニュー・料金表</h2>
+        <div class="mx-auto mt-4 h-px w-12 bg-brown"></div>
+
+        <div class="mt-12 overflow-hidden rounded-2xl bg-white shadow-sm">
+          <table class="w-full text-left">
+            <caption class="sr-only">メニューと料金（税込）</caption>
+            <thead class="bg-brown text-white">
+              <tr>
+                <th scope="col" class="px-5 py-4 text-sm font-bold md:px-8">メニュー</th>
+                <th scope="col" class="px-5 py-4 text-right text-sm font-bold md:px-8">料金（税込）</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-beige-dark">
+              <tr>
+                <th scope="row" class="px-5 py-6 font-normal md:px-8">
+                  <span class="block font-bold">カット</span>
+                  <span class="mt-1 block text-xs text-ink/60">シャンプー・ブロー込み</span>
+                </th>
+                <td class="px-5 py-6 text-right text-lg font-bold text-brown-dark md:px-8">¥6,600</td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-5 py-6 font-normal md:px-8">
+                  <span class="block font-bold">カット＋カラー</span>
+                  <span class="mt-1 block text-xs text-ink/60">白髪ぼかし・おしゃれ染め対応</span>
+                </th>
+                <td class="px-5 py-6 text-right text-lg font-bold text-brown-dark md:px-8">¥13,200</td>
+              </tr>
+              <tr class="bg-beige/60">
+                <th scope="row" class="px-5 py-6 font-normal md:px-8">
+                  <span class="mb-2 inline-flex items-center gap-1 rounded-full bg-brown px-3 py-1 text-xs font-bold text-white">
+                    <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.25 4.1 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.7l5.9-.9z"/></svg>
+                    人気No.1
+                  </span>
+                  <span class="block font-bold">髪質改善トリートメント</span>
+                  <span class="mt-1 block text-xs text-ink/60">カウンセリング・ホームケアアドバイス付き</span>
+                </th>
+                <td class="px-5 py-6 text-right text-lg font-bold text-brown-dark md:px-8">¥16,500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-4 text-xs text-ink/60">※ 料金はすべて税込です。髪の長さ・状態により追加料金が発生する場合は、施術前にご案内いたします。</p>
+      </div>
+    </section>
+
+    <!-- 5. Voice -->
+    <section id="voice" class="bg-white px-4 py-20 md:py-28">
+      <div class="mx-auto max-w-6xl">
+        <p class="text-center text-xs tracking-widest2 text-brown">VOICE</p>
+        <h2 class="mt-3 text-center text-2xl font-bold tracking-wider md:text-3xl">お客様の声</h2>
+        <div class="mx-auto mt-4 h-px w-12 bg-brown"></div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <figure class="flex flex-col rounded-2xl bg-beige p-7">
+            <div class="flex gap-0.5 text-[#c9a227]" role="img" aria-label="5点満点中5点">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="mt-4 flex-1 text-sm leading-loose text-ink/85">
+              「髪質改善トリートメントを受けてから、朝のブローが本当にラクになりました。完全予約制なので落ち着いて過ごせるのも嬉しいです。」
+            </blockquote>
+            <figcaption class="mt-5 border-t border-brown/15 pt-4 text-xs text-ink/60">40代・会社員 S様</figcaption>
+          </figure>
+          <figure class="flex flex-col rounded-2xl bg-beige p-7">
+            <div class="flex gap-0.5 text-[#c9a227]" role="img" aria-label="5点満点中5点">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="mt-4 flex-1 text-sm leading-loose text-ink/85">
+              「白髪を隠すために暗くするしかないと思っていましたが、明るめの白髪ぼかしを提案してもらい、若々しい印象になりました。」
+            </blockquote>
+            <figcaption class="mt-5 border-t border-brown/15 pt-4 text-xs text-ink/60">50代・主婦 K様</figcaption>
+          </figure>
+          <figure class="flex flex-col rounded-2xl bg-beige p-7">
+            <div class="flex gap-0.5 text-[#c9a227]" role="img" aria-label="5点満点中5点">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="mt-4 flex-1 text-sm leading-loose text-ink/85">
+              「カウンセリングがとても丁寧で、自分に似合う長さを初めて見つけられた気がします。家でも再現しやすくて大満足です。」
+            </blockquote>
+            <figcaption class="mt-5 border-t border-brown/15 pt-4 text-xs text-ink/60">30代・会社員 M様</figcaption>
+          </figure>
+        </div>
+        <p class="mt-6 text-center text-xs text-ink/50">※ 個人の感想であり、効果を保証するものではありません。</p>
+      </div>
+    </section>
+
+    <!-- 6. Stylist -->
+    <section id="stylist" class="px-4 py-20 md:py-28">
+      <div class="mx-auto max-w-4xl">
+        <p class="text-center text-xs tracking-widest2 text-brown">STYLIST</p>
+        <h2 class="mt-3 text-center text-2xl font-bold tracking-wider md:text-3xl">スタイリスト紹介</h2>
+        <div class="mx-auto mt-4 h-px w-12 bg-brown"></div>
+
+        <div class="mt-12 grid gap-10 sm:grid-cols-2">
+          <article class="text-center">
+            <img src="https://placehold.co/480x480/d9cbbb/6f5b43?text=Stylist+1" alt="代表スタイリスト 佐藤 美咲の写真" class="mx-auto h-48 w-48 rounded-full object-cover md:h-56 md:w-56" loading="lazy">
+            <p class="mt-6 text-xs tracking-widest text-brown">OWNER STYLIST</p>
+            <h3 class="mt-1 text-xl font-bold">佐藤 美咲 <span class="ml-1 text-sm font-normal text-ink/60">Misaki Sato</span></h3>
+            <p class="mx-auto mt-4 max-w-sm text-left text-sm leading-loose text-ink/80">
+              表参道の有名サロンで12年間勤務し、店長を経験。2020年にHair Salon BLOOMを開業。髪質改善の専門資格を持ち、大人女性の「扱いやすさ」と「ツヤ」を両立させるスタイルが得意です。
+            </p>
+          </article>
+          <article class="text-center">
+            <img src="https://placehold.co/480x480/d9cbbb/6f5b43?text=Stylist+2" alt="スタイリスト 高橋 優子の写真" class="mx-auto h-48 w-48 rounded-full object-cover md:h-56 md:w-56" loading="lazy">
+            <p class="mt-6 text-xs tracking-widest text-brown">STYLIST / COLORIST</p>
+            <h3 class="mt-1 text-xl font-bold">高橋 優子 <span class="ml-1 text-sm font-normal text-ink/60">Yuko Takahashi</span></h3>
+            <p class="mx-auto mt-4 max-w-sm text-left text-sm leading-loose text-ink/80">
+              美容師歴10年。カラーリスト資格を保有し、白髪を活かした明るめカラーやハイライトを得意とします。「白髪も楽しめる髪色」をテーマに、一人ひとりに合う色をご提案します。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Access -->
+    <section id="access" class="bg-white px-4 py-20 md:py-28">
+      <div class="mx-auto max-w-6xl">
+        <p class="text-center text-xs tracking-widest2 text-brown">ACCESS</p>
+        <h2 class="mt-3 text-center text-2xl font-bold tracking-wider md:text-3xl">店舗情報・アクセス</h2>
+        <div class="mx-auto mt-4 h-px w-12 bg-brown"></div>
+
+        <div class="mt-12 grid gap-10 md:grid-cols-2">
+          <dl class="divide-y divide-beige-dark text-sm">
+            <div class="grid grid-cols-[6.5rem_1fr] gap-3 py-4">
+              <dt class="font-bold text-brown-dark">店名</dt>
+              <dd>Hair Salon BLOOM（ヘアサロン ブルーム）</dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-3 py-4">
+              <dt class="font-bold text-brown-dark">住所</dt>
+              <dd>〒150-0000<br>東京都渋谷区渋谷0-0-0 BLOOMビル 3F</dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-3 py-4">
+              <dt class="font-bold text-brown-dark">アクセス</dt>
+              <dd>渋谷駅 ○○口より徒歩3分</dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-3 py-4">
+              <dt class="font-bold text-brown-dark">営業時間</dt>
+              <dd>平日 10:00〜20:00<br>土日祝 9:00〜19:00<br><span class="text-xs text-ink/60">※ 最終受付はメニューにより異なります</span></dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-3 py-4">
+              <dt class="font-bold text-brown-dark">定休日</dt>
+              <dd>毎週火曜日・第3水曜日</dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-3 py-4">
+              <dt class="font-bold text-brown-dark">電話番号</dt>
+              <dd><a href="tel:0300000000" class="text-brown underline underline-offset-4">03-0000-0000</a></dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-3 py-4">
+              <dt class="font-bold text-brown-dark">席数</dt>
+              <dd>セット面 2席（完全予約制）</dd>
+            </div>
+          </dl>
+
+          <div>
+            <div class="relative overflow-hidden rounded-2xl bg-beige-dark">
+              <img src="https://placehold.co/800x600/ebe3da/8b7355?text=MAP" alt="Hair Salon BLOOM周辺の地図（プレースホルダー）" class="aspect-[4/3] w-full object-cover" loading="lazy">
+              <!-- 本番では下記をGoogleマップの埋め込みiframeに差し替えてください -->
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B8%8B%E8%B0%B7%E9%A7%85" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 text-sm text-brown underline underline-offset-4">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Googleマップで開く
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Reserve CTA -->
+    <section id="reserve" class="relative overflow-hidden bg-brown px-4 py-20 text-white md:py-28">
+      <div class="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/5"></div>
+      <div class="pointer-events-none absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-white/5"></div>
+      <div class="relative mx-auto max-w-3xl text-center">
+        <p class="text-xs tracking-widest2 text-beige/80">RESERVATION</p>
+        <h2 class="mt-3 text-2xl font-bold tracking-wider md:text-3xl">ご予約・お問い合わせ</h2>
+        <p class="mt-6 text-sm leading-loose text-beige md:text-base">
+          完全予約制のため、事前のご予約をお願いしております。<br class="hidden sm:block">
+          髪のお悩みのご相談だけでもお気軽にどうぞ。
+        </p>
+
+        <div class="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+          <a href="tel:0300000000" class="inline-flex items-center justify-center gap-3 rounded-full bg-white px-8 py-4 font-bold text-brown-dark shadow-lg transition hover:bg-beige sm:min-w-[16rem]">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5.5A2.5 2.5 0 015.5 3h1.6a1 1 0 01.95.68l1.2 3.6a1 1 0 01-.27 1.05L7.4 9.9a12 12 0 006.7 6.7l1.57-1.58a1 1 0 011.05-.26l3.6 1.2a1 1 0 01.68.95v1.6A2.5 2.5 0 0118.5 21C10 21 3 14 3 5.5z"/></svg>
+            電話で予約する
+          </a>
+          <a href="https://line.me/R/ti/p/@example" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-3 rounded-full bg-[#06C755] px-8 py-4 font-bold text-white shadow-lg transition hover:brightness-110 sm:min-w-[16rem]">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8zM8.3 13.4H6.4c-.3 0-.5-.2-.5-.5V9.1c0-.3.2-.5.5-.5s.5.2.5.5v3.3h1.4c.3 0 .5.2.5.5s-.2.5-.5.5zm2-.5c0 .3-.2.5-.5.5s-.5-.2-.5-.5V9.1c0-.3.2-.5.5-.5s.5.2.5.5v3.8zm4.5 0c0 .2-.1.4-.3.5h-.2c-.2 0-.3-.1-.4-.2l-2-2.6v2.3c0 .3-.2.5-.5.5s-.5-.2-.5-.5V9.1c0-.2.1-.4.3-.5h.2c.2 0 .3.1.4.2l2 2.6V9.1c0-.3.2-.5.5-.5s.5.2.5.5v3.8zm3.1-2.4c.3 0 .5.2.5.5s-.2.5-.5.5h-1.4v.9h1.4c.3 0 .5.2.5.5s-.2.5-.5.5h-1.9c-.3 0-.5-.2-.5-.5V9.1c0-.3.2-.5.5-.5h1.9c.3 0 .5.2.5.5s-.2.5-.5.5h-1.4v.9h1.4z"/></svg>
+            LINEで予約する
+          </a>
+        </div>
+        <p class="mt-6 text-xs text-beige/80">お電話受付 10:00〜19:00（定休日：火曜・第3水曜）／ LINEは24時間受付</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-ink px-4 py-10 text-center text-beige/70">
+    <p class="text-lg font-bold tracking-[0.2em] text-beige">Hair Salon BLOOM</p>
+    <p class="mt-2 text-xs">東京都渋谷区渋谷0-0-0 BLOOMビル 3F ／ TEL 03-0000-0000</p>
+    <p class="mt-6 text-[11px]">&copy; <span id="year">2026</span> Hair Salon BLOOM. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Mobile fixed CTA -->
+  <div id="fixedCta" class="fixed inset-x-0 bottom-0 z-40 grid translate-y-full grid-cols-2 gap-2 bg-beige/95 p-2 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] backdrop-blur transition-transform duration-300 md:hidden">
+    <a href="tel:0300000000" class="flex items-center justify-center gap-2 rounded-full bg-brown py-3 text-sm font-bold text-white">電話で予約</a>
+    <a href="https://line.me/R/ti/p/@example" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 rounded-full bg-[#06C755] py-3 text-sm font-bold text-white">LINEで予約</a>
+  </div>
+
+  <script>
+    // モバイルメニュー開閉
+    const btn = document.getElementById('menuBtn');
+    const nav = document.getElementById('mobileNav');
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // ヒーローを過ぎたら下部固定CTAを表示（予約セクション表示中は隠す）
+    const cta = document.getElementById('fixedCta');
+    const reserve = document.getElementById('reserve');
+    const toggleCta = () => {
+      const pastHero = window.scrollY > window.innerHeight * 0.8;
+      const r = reserve.getBoundingClientRect();
+      const inReserve = r.top < window.innerHeight && r.bottom > 0;
+      cta.classList.toggle('translate-y-full', !(pastHero && !inReserve));
+    };
+    window.addEventListener('scroll', toggleCta, { passive: true });
+    toggleCta();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
